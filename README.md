@@ -23,7 +23,7 @@ Start a container with your desired mappings:
 ```bash
 docker run -d \
   --name my-caddy-container \
-  -e MAPPING='[{"example.com":"http://backend1:8080"},{"api.example.com":"http://backend2:9090"}]' \
+  -e MAPPING='[{"example.com":"backend1:8080"},{"api.example.com":"backend2:9090"}]' \
   -p 80:80 \
   caddy-reverse-proxy-env-var
 ```
@@ -33,8 +33,8 @@ The `MAPPING` environment variable should be a JSON array of objects, where each
 
 ```json
 [
-  {"example.com": "http://backend1:8080"},
-  {"api.example.com": "http://backend2:9090"}
+  {"example.com": "backend1:8080"},
+  {"api.example.com": "backend2:9090"}
 ]
 ```
 
