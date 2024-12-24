@@ -15,7 +15,7 @@ echo "$MAPPING" | jq -c '.[]' | while read -r mapping; do
     URL=$(echo "$mapping" | jq -r 'keys[0]')
     TARGET=$(echo "$mapping" | jq -r '.[]')
     echo "${URL} {" >> "$CADDYFILE_PATH"
-    echo "  reverse_proxy ${TARGET}" >> "$CADDYFILE_PATH"
+    echo "        reverse_proxy ${TARGET}" >> "$CADDYFILE_PATH"
     echo "}" >> "$CADDYFILE_PATH"
     echo "" >> "$CADDYFILE_PATH"
 done
