@@ -63,5 +63,16 @@ docker stop caddy-reverse-proxy-env-var
 docker rm caddy-reverse-proxy-env-var
 ```
 
+## Docker Hub Repository
+You can pull the prebuilt image from Docker Hub:
+
+[https://hub.docker.com/repository/docker/lenny4/caddy-reverse-proxy-env-var/general](https://hub.docker.com/repository/docker/lenny4/caddy-reverse-proxy-env-var/general)
+
+To use the image from Docker Hub:
+
+```bash
+docker pull lenny4/caddy-reverse-proxy-env-var
+```
+
 ## License
 This project is licensed under the [MIT License](LICENSE). Contributions are welcome!
