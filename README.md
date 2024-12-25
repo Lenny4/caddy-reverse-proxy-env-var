@@ -22,8 +22,18 @@ Start a container with your desired mappings:
 
 ```bash
 docker run -d \
-  --name my-caddy-container \
+  --name caddy-reverse-proxy-env-var \
   -e MAPPING='[{"example.com":"backend1:8080"},{"api.example.com":"backend2:9090"}]' \
+  -p 80:80 \
+  caddy-reverse-proxy-env-var
+```
+
+Add `http` if you want to disable https redirect
+
+```bash
+docker run -d \
+  --name caddy-reverse-proxy-env-var \
+  -e MAPPING='[{"http://example.com":"backend1:8080"},{"http://api.example.com":"backend2:9090"}]' \
   -p 80:80 \
   caddy-reverse-proxy-env-var
 ```
@@ -42,15 +52,15 @@ The `MAPPING` environment variable should be a JSON array of objects, where each
 To verify the configuration, check the container logs for the generated `Caddyfile`:
 
 ```bash
-docker logs my-caddy-container
+docker logs caddy-reverse-proxy-env-var
 ```
 
 ## Stopping and Cleaning Up
 Stop and remove the container when it is no longer needed:
 
 ```bash
-docker stop my-caddy-container
-docker rm my-caddy-container
+docker stop caddy-reverse-proxy-env-var
+docker rm caddy-reverse-proxy-env-var
 ```
 
 ## License
